@@ -121,7 +121,7 @@ namespace Blog.Controllers
             {
                 return StatusCode(500, new ResultViewModel<Category>("05X07 - Não foi possível excluir a categoria"));
             }
-            catch (Exception ex)
+            catch
             {
                 return StatusCode(500, new ResultViewModel<Category>("05X12 - Falha interna no servidor"));
             }

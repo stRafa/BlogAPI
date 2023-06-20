@@ -26,7 +26,7 @@ namespace Blog.Data.Mappings
                 .HasColumnName("LastUpdateDate")
                 .HasColumnType("TEXT")
                 .HasMaxLength(60)
-                .HasDefaultValueSql("GETDATE()");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
             // .HasDefaultValue(DateTime.Now.ToUniversalTime());
 
             // Índices
