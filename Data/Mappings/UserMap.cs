@@ -23,7 +23,7 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnName("Name")
-                .HasColumnType("NVARCHAR")
+                .HasColumnType("TEXT")
                 .HasMaxLength(80);
 
             builder.Property(x => x.Bio);
@@ -34,7 +34,7 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Slug)
                 .IsRequired()
                 .HasColumnName("Slug")
-                .HasColumnType("VARCHAR")
+                .HasColumnType("TEXT")
                 .HasMaxLength(80);
 
             // Índices

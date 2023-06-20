@@ -24,7 +24,7 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.LastUpdateDate)
                 .IsRequired()
                 .HasColumnName("LastUpdateDate")
-                .HasColumnType("SMALLDATETIME")
+                .HasColumnType("TEXT")
                 .HasMaxLength(60)
                 .HasDefaultValueSql("GETDATE()");
             // .HasDefaultValue(DateTime.Now.ToUniversalTime());
