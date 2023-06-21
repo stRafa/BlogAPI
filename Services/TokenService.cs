@@ -15,8 +15,9 @@ public class TokenService
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new Claim[]{
-                new (ClaimTypes.Name, "rafaelmarques"), //User.Identity.Name
-                new (ClaimTypes.Role, "admin"), //User.IsInRole
+                new (ClaimTypes.Name, "rafaelmarques"), 
+                new (ClaimTypes.Role, "admin"),
+                new (ClaimTypes.Role, "user"),
             }),
             Expires = DateTime.UtcNow.AddHours(8),
             SigningCredentials = new SigningCredentials(
