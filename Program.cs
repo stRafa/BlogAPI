@@ -7,38 +7,69 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
+ConfigureAuthentication(builder);
 
-builder.Services.AddAuthentication(x =>
+ConfigureMvc(builder);
+
+ConfigureServices(builder);
+
+var app = builder.Build();
+
+LoadConfiguration(app);
+
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseStaticFiles();
+app.MapControllers();
+
+app.Run();
+
+
+void LoadConfiguration(WebApplication app)
 {
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(x =>
+    Configuration.JwtKey = app.Configuration.GetValue<string>("JwtKey");
+    Configuration.ApiKeyName = app.Configuration.GetValue<string>("ApiKeyName");
+    Configuration.ApiKey = app.Configuration.GetValue<string>("ApiKey");
+    Configuration.Domain = app.Configuration.GetValue<string>("Domain");
+
+    var smtp = new Configuration.SmtpConfiguration();
+    app.Configuration.GetSection("Smtp").Bind(smtp);
+    Configuration.Smtp = smtp;
+}
+
+void ConfigureAuthentication(WebApplicationBuilder builder)
 {
-    x.TokenValidationParameters = new TokenValidationParameters
+    var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
+    builder.Services.AddAuthentication(x =>
     {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false,
-        ValidateAudience = false
-    };
-});
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(x =>
+    {
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+}
 
-builder
+void ConfigureMvc(WebApplicationBuilder builder)
+{
+    builder
     .Services
     .AddControllers()
     .ConfigureApiBehaviorOptions(options =>
     {
         options.SuppressModelStateInvalidFilter = true;
     });
-builder.Services.AddDbContext<BlogDataContext>();
-builder.Services.AddTransient<TokenService>();
+}
 
-var app = builder.Build();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+void ConfigureServices(WebApplicationBuilder builder)
+{
+    builder.Services.AddDbContext<BlogDataContext>();
+    builder.Services.AddTransient<TokenService>();
+    builder.Services.AddTransient<EmailService>();
+}
