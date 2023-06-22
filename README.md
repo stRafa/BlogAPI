@@ -2,7 +2,7 @@
 API de Blog
 Bem-vindo à documentação da API de um blog feita em .NET! Esta API foi desenvolvida para fornecer um conjunto de endpoints que permite gerenciar posts, comentários e usuários de um blog.
 
-##Configuração
+## Configuração
 Antes de começar a usar a API, siga as instruções abaixo para configurar o ambiente de desenvolvimento:
 
 Certifique-se de ter o .NET SDK instalado em sua máquina. Você pode fazer o download da versão mais recente em: https://dotnet.microsoft.com/download.
@@ -11,7 +11,7 @@ Clone o repositório do projeto do blog em seu ambiente local:
 
 bash
 Copy code
-´´´git clone https://github.com/stRafa/BlogAPI.git´´´
+´´´ git clone https://github.com/stRafa/BlogAPI.git ´´´
 Acesse o diretório raiz do projeto:
 
 
@@ -25,12 +25,10 @@ Copy code
 dotnet ef database update
 Agora você está pronto para executar a API. Utilize o seguinte comando para iniciar o servidor:
 
-arduino
-Copy code
 dotnet run
 A API estará acessível em: http://localhost:5000.
 
-Endpoints
+## Endpoints
 A API de blog fornece os seguintes endpoints:
 
 Autenticação
