@@ -13,19 +13,20 @@ namespace Blog.Data.Mappings
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd();
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
 
             // Propriedades
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnName("Name")
-                .HasColumnType("TEXT")
+                .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
 
             builder.Property(x => x.Slug)
                 .IsRequired()
                 .HasColumnName("Slug")
-                .HasColumnType("TEXT")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(50);
 
             builder

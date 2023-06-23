@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Blog.Models;
+﻿using Blog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,13 +16,14 @@ namespace Blog.Data.Mappings
 
             // Identity
             builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd();
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
 
             // Propriedades
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnName("Name")
-                .HasColumnType("TEXT")
+                .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
 
             builder.Property(x => x.Bio)
@@ -32,22 +32,21 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Email)
                 .IsRequired()
                 .HasColumnName("Email")
-                .HasColumnType("TEXT")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(160);
 
             builder.Property(x => x.Image)
                 .IsRequired(false);
 
-            builder.Property(x => x.PasswordHash)
-                .IsRequired()
+            builder.Property(x => x.PasswordHash).IsRequired()
                 .HasColumnName("PasswordHash")
-                .HasColumnType("TEXT")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(255);
 
             builder.Property(x => x.Slug)
                 .IsRequired()
                 .HasColumnName("Slug")
-                .HasColumnType("TEXT")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(80);
 
             // Índices

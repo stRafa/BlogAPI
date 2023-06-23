@@ -16,19 +16,20 @@ namespace Blog.Data.Mappings
 
             // Identity
             builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd();
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
 
             // Propriedades
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnName("Name")
-                .HasColumnType("TEXT")
+                .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
 
             builder.Property(x => x.Slug)
                 .IsRequired()
                 .HasColumnName("Slug")
-                .HasColumnType("TEXT")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(80);
 
             // Índices
