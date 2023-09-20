@@ -10,9 +10,9 @@ Certifique-se de ter o .NET SDK instalado em sua máquina. Você pode fazer o do
 Clone o repositório do projeto do blog em seu ambiente local:
 
 copie o código para o terminal para baixar o projeto
-´´´ 
+```
 git clone https://github.com/stRafa/BlogAPI.git 
-´´´
+```
 Acesse o diretório raiz do projeto:
 
 
