@@ -31,7 +31,7 @@ A API estará acessível em: http://localhost:5000.
 ## Endpoints
 A API de blog fornece os seguintes endpoints:
 
-Autenticação
+# Autenticação
 POST /api/auth/register: Registra um novo usuário no blog.
 POST /api/auth/login: Realiza o login de um usuário e retorna um token de autenticação.
 Posts
