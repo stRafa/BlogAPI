@@ -26,9 +26,10 @@ copie o código para o terminal
 dotnet ef database update
 ```
 Agora você está pronto para executar a API. Utilize o seguinte comando para iniciar o servidor:
-
+```
 dotnet run
-A API estará acessível em: http://localhost:5000.
+```
+A API estará acessível em: https://localhost:7277.
 
 ## Endpoints
 A API de blog fornece os seguintes endpoints:
