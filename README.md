@@ -1,6 +1,6 @@
 # BlogAPI
 API de Blog
-Bem-vindo à documentação da API de um blog feita em .NET! Esta API foi desenvolvida para fornecer um conjunto de endpoints que permite gerenciar posts, comentários e usuários de um blog.
+Bem-vindo à documentação da API de um blog feita em .NET! Esta API foi desenvolvida para fornecer um conjunto de endpoints que permite gerenciar posts e usuários de um blog.
 
 ## Configuração
 Antes de começar a usar a API, siga as instruções abaixo para configurar o ambiente de desenvolvimento:
