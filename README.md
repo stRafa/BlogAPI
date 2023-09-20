@@ -14,16 +14,17 @@ copie o código para o terminal para baixar o projeto
 git clone https://github.com/stRafa/BlogAPI.git 
 ```
 Acesse o diretório raiz do projeto:
-
-
+```
 cd blog-api
+```
 Abra o arquivo appsettings.json e verifique as configurações do banco de dados. Certifique-se de fornecer as informações corretas do servidor de banco de dados que você deseja utilizar.
 
 Execute o seguinte comando para criar o banco de dados e executar as migrações iniciais:
 
-sql
-Copy code
+copie o código para o terminal
+```
 dotnet ef database update
+```
 Agora você está pronto para executar a API. Utilize o seguinte comando para iniciar o servidor:
 
 dotnet run
