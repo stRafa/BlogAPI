@@ -31,21 +31,16 @@ A API estará acessível em: http://localhost:5000.
 ## Endpoints
 A API de blog fornece os seguintes endpoints:
 
-# Autenticação
-POST /api/auth/register: Registra um novo usuário no blog.
-POST /api/auth/login: Realiza o login de um usuário e retorna um token de autenticação.
-Posts
-GET /api/posts: Retorna uma lista de todos os posts.
-GET /api/posts/{id}: Retorna os detalhes de um post específico.
-POST /api/posts: Cria um novo post.
-PUT /api/posts/{id}: Atualiza um post existente.
-DELETE /api/posts/{id}: Exclui um post existente.
-Comentários
-GET /api/posts/{postId}/comments: Retorna todos os comentários de um post.
-GET /api/comments/{id}: Retorna os detalhes de um comentário específico.
-POST /api/posts/{postId}/comments: Adiciona um novo comentário a um post.
-PUT /api/comments/{id}: Atualiza um comentário existente.
-DELETE /api/comments/{id}: Exclui um comentário existente.
+### Autenticação
+- POST /api/auth/register: Registra um novo usuário no blog.
+- POST /api/auth/login: Realiza o login de um usuário e retorna um token de autenticação.
+
+- GET /api/posts: Retorna uma lista de todos os posts.
+- GET /api/posts/{id}: Retorna os detalhes de um post específico.
+- POST /api/posts: Cria um novo post.
+- PUT /api/posts/{id}: Atualiza um post existente.
+- DELETE /api/posts/{id}: Exclui um post existente.
+
 Autenticação
 Para acessar os endpoints protegidos que requerem autenticação, você deve incluir um cabeçalho Authorization com o valor "Bearer {token}". O token de autenticação pode ser obtido através do endpoint de login.
 
